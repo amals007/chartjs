@@ -1,50 +1,13 @@
-import React, { useState } from "react";
-import BarChart from "./components/BarChart";
-import { UserData } from "./Data";
-import LineChart from "./components/LineChart";
-import PieChart from './components/PieChart'
-const App = () => {
- 
-  const [userData, setUserData] = useState({
-    labels: UserData.map((data) => data.year),
-    datasets: [
-         //chartjs requires an object which contains two different properties such as labels and data sets
-      {
-        label: "Users Gained",
-        data: UserData.map((data) => data.userGain),
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-          "rgb(54, 162, 235)",
-          "rgb(153, 102, 255)",
-          "rgb(201, 203, 207)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  });
-  return (
-    <div className="App">
-      <div style={{ width: "700px" }}>
-        <BarChart chartData={userData} />
-      </div>
-      <div style={{ width: "700px" }}>
-        <LineChart chartData={userData} />
-      </div>
-      <div style={{ width: "700px" }}>
-        <PieChart chartData={userData} />
-      </div>
-    </div>
-  );
-};
+import React from 'react'
+import ChartjsBasic from './components/ChartjsBasic/ChartjsBasic'
 
-export default App;
+const App = () => {
+  return (
+    <div>
+      <ChartjsBasic />
+
+    </div>
+  )
+}
+
+export default App
